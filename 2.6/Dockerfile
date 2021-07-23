@@ -19,7 +19,6 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libreadline6-dev \
 		libssl-dev \
 		libyaml-dev \
-		xvfb \
 		zlib1g-dev && \
 	# Skip installing gem docs
 	echo "gem: --no-document" > ~/.gemrc && \

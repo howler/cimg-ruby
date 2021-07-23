@@ -8,4 +8,4 @@
 # docker build --file 2.7/browsers/Dockerfile -t cimg/ruby:2.7.4-browsers  -t cimg/ruby:2.7-browsers .
 docker build --file 2.6/Dockerfile -t howlerp45/ruby:2.6.7 .
 docker build --file 2.6/node/Dockerfile -t howlerp45/ruby:2.6.7-node .
-# docker build --file 2.6/browsers/Dockerfile -t cimg/ruby:2.6.8-browsers  -t cimg/ruby:2.6-browsers .
+docker build --file 2.6/browsers/Dockerfile -t howlerp45/ruby:2.6.7-browsers .
