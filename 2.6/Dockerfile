@@ -4,8 +4,9 @@ FROM cimg/base:2021.04
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
-ENV RUBY_VERSION=2.6.8 \
-	RUBY_MAJOR=2.6
+ENV RUBY_VERSION=2.6.7 \
+	RUBY_MAJOR=2.6 \
+	BUNDLER_VERSION=1.17.3
 
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		autoconf \
@@ -36,6 +37,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	ruby --version && \
 	gem --version && \
 	sudo gem update --system && \
+	sudo gem install bundler:$BUNDLER_VERSION && \
 	gem --version && \
 	bundle --version
 

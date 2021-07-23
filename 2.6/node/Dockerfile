@@ -1,10 +1,9 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/ruby:2.6.8
+FROM howlerp45/ruby:2.6.7
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
-# Dockerfile will pull the latest LTS release from cimg-node.
 ENV NODE_VERSION 14.15.1
 RUN curl -sSL "https://raw.githubusercontent.com/CircleCI-Public/cimg-node/master/ALIASES" -o nodeAliases.txt && \
 	curl -L -o node.tar.xz "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" && \
