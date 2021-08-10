@@ -47,17 +47,3 @@ RUN sudo apt-get update && \
 		xvfb \
 	&& \
 	sudo rm -rf /var/lib/apt/lists/*
-
-# Below is setup to allow xvfb to start when the container starts up.
-# The label in particular allows this image to override what CircleCI does
-# when booting the image.
-LABEL com.circleci.preserve-entrypoint=true
-ENV DISPLAY=":99"
-#RUN	printf '#!/bin/sh\nXvfb :99 -screen 0 1280x1024x24 &\nexec "$@"\n' > /tmp/entrypoint && \
-#	chmod +x /tmp/entrypoint && \
-#	sudo mv /tmp/entrypoint /docker-entrypoint.sh
-RUN	printf '#!/bin/sh\nXvfb :99 -screen 0 1280x1024x24 &\nexec "$@"\n' | sudo tee /docker-entrypoint.sh && \
-	sudo chmod +x /docker-entrypoint.sh
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/bin/sh"]
